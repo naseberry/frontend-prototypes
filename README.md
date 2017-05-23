@@ -8,19 +8,38 @@ The brand of UK Parliament created by the [Parliamentary Digital Service][pds] f
 ## Requirements
 [parliament.uk-pugin][parliament.uk-pugin] requires the following:
 
-* [NodeJS][nodejs] 6.0.0 and above
+* [Docker][docker] 17.0.0 and above
 
-## Setup
-To install, clone from GitHub and run `make install` in the cloned directory:
+## Getting Started
+Clone the repository:
 
 ```bash
 git clone https://github.com/ukparliament/parliament.uk-pugin.git
 cd parliament.uk-pugin
-make install
 ```
 
-## Usage
-After setting up, run `make serve`. Browse to http://localhost:3000 to view Pugin (UK Parliament Brand) on example prototypes.
+## Running the application
+Running the application locally is done using docker-compose, this will build an image and container.
+
+```bash
+docker-compose up
+```
+
+After running the application, browse to [http://localhost:5000](http://localhost:5000) to view Pugin (UK Parliament Brand) on example prototypes.
+
+### Enter the containers shell
+```bash
+docker-compose exec app /bin/sh
+```
+
+### Application commands available within the container
+| Command  | Description  |
+|---|---|
+| `make watch`  | Watches project files for changes  |
+| `make test`  | Runs accessibility testing  |
+| `make clean`  | Deletes the public folder  |
+
+Other commands are available in the applications [Makefile](Makefile)
 
 ## Documentation
 * [W3C](docs/W3C.md)
@@ -41,6 +60,7 @@ If you wish to submit a bug fix or feature, you can create a pull request and it
 ## License
 [parliament.uk-pugin][parliament.uk-pugin] is licensed under the [Open Parliament Licence][info-license].
 
+[docker]:          		  https://www.docker.com/
 [nodejs]:          		  http://nodejs.org
 [pug-cli]:         		  https://github.com/pugjs/pug-cli
 [leafletjs]:         		http://leafletjs.com/

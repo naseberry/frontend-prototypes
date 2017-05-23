@@ -1,0 +1,12 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/reports
+    command: ./compose.sh
+    ports:
+      - '5000:5000'
