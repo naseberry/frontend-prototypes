@@ -230,6 +230,26 @@
 
 /*--- Column Mixins ---*/
 
+@mixin col ($col, $sum, $margin: false, $padding: false) {
+  border-top: 1px solid red;
+  margin: if(
+    $margin,
+    $margin,
+    0
+  );
+  padding: if(
+    $padding,
+    $padding,
+    0
+  );
+  width: if(
+    $margin,
+    calc( ((#{$col}/#{$sum})*100%) - (#{$margin}*2) ),
+    percentage($col/$sum)
+  );
+}
+
+
 @mixin col--2 {
   @include media($medium) {
     > li {

@@ -1,0 +1,75 @@
+extends ../../layouts/layout.pug
+block content
+  -var thingPage = true
+
+  .section--primary(tabindex=0)#content
+    .container
+      h1 Columns
+
+  section.section--wide
+    .container
+      .row
+        .col-12
+          h2 Article with Aside
+        .col-8
+          p Article...
+        .col-4
+          p Aside
+
+      .row
+        .col-12
+          h2 Article without Aside
+        .col-8
+          p Article...
+
+      .row
+        .col-12
+          h2 Two Columns
+        .col-6
+          p 1 of 2
+        .col-6
+          p 2 of 2
+
+      .row
+        .col-12
+          h2 Three Columns
+        .col-4
+          p 1 of 3
+        .col-4
+          p 2 of 3
+        .col-4
+          p 3 of 3
+
+
+      .row
+        .col-12
+          h2 Other combinations
+
+        .col-12 full width
+
+        .col-1 .col-1
+        .col-11 .col-11
+
+        .col-2 .col-2
+        .col-10 .col-10
+
+        .col-3 .col-3
+        .col-9 .col-9
+
+        .col-4 .col-4
+        .col-8 col-8
+
+        .col-5 .col-5
+        .col-7 .col-7
+
+        .col-6 .col-6
+        .col-6 .col-6
+
+        .col-3 .col-3
+        .col-3 .col-3
+        .col-3 .col-3
+        .col-3 .col-3
+
+        .col-4 .col-4
+        .col-4 .col-4
+        .col-4 .col-4

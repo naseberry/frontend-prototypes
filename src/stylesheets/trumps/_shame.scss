@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/*--- Columns: Placeholder ---*/
+@for $i from 1 through 12 {
+  %col-#{$i} {
+    @include col($i, 12, $margin: 15px);
+  }
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    @extend %col-#{$i};
+  }
+}
