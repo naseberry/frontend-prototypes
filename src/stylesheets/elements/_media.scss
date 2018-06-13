@@ -58,8 +58,7 @@ figcaption {
   @include css-animation(.8s, linear, 0s, infinite, spinner);
 }
 
-.video-wrap, // ToDo: To be deleted once markup has been updated to .video--wrapper
-.video--wrapper {
+.video-wrap {
   margin-bottom: $base-spacing-unit-large;
   position: relative;
   &:before {
@@ -68,7 +67,6 @@ figcaption {
     padding-top: (9 / 16) * 100%; // 16:9 aspect ratio
     width: 100%;
   }
-  video,
   iframe {
     position: absolute;
     top: 0;
