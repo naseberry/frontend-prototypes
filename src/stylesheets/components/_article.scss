@@ -1,11 +1,4 @@
 article {
-  position: relative;
-  margin: $base-spacing-unit-extra-large 0 $base-spacing-unit-small;
-  @include media($large) {
-    flex: 1;
-    margin-top: ($base-spacing-unit-large * 2);
-  }
-
   @media print {
     p, blockquote, li {
       page-break-inside: avoid;

@@ -60,7 +60,7 @@ dl, dt, dd {
 /*--- List Column Options ---*/
 
 .list--2 {
-  @include col--2;
+  @include list--2;
   @include media($medium) {
     @include last-row(2);
   }
@@ -68,7 +68,7 @@ dl, dt, dd {
 
 section:not([class*="section--wide"] ) .list--3 {
   // Default two column list within narrow container
-  @include col--2;
+  @include list--2;
 
   // Targets the last row within lists
   @media (min-width: $medium) and (max-width: $extra-large - 1) {
@@ -80,7 +80,7 @@ section:not([class*="section--wide"] ) .list--3 {
 }
 
 .section--wide .list--3 {
-  @include col--3;
+  @include list--3;
   @media (min-width: $medium) and (max-width: $large - 1) {
     @include last-row(2);
   }

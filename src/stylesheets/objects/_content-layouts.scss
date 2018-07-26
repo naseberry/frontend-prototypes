@@ -63,11 +63,8 @@ main .container {
   }
 }
 
-.article--wrapper .container {
-  @include media($medium) {
-    display: flex;
-    flex-wrap: wrap;
-  }
+.article--wrapper {
+  @include article;
 }
 
 /*--- Container Component Rules ---*/

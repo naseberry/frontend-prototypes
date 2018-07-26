@@ -294,23 +294,25 @@
 
 /*--- Column Mixins ---*/
 
-@mixin col ($col: 1, $sum: 1, $grid-gap: false) {
+@mixin row($grid-gap: false) {
+  display: flex;
+  flex-flow: row wrap;
 
   @if ($grid-gap != false) {
     margin-left: -($grid-gap / 2);
     margin-right: -($grid-gap / 2);
   }
+}
 
-  > li {
-    margin: if(
-      $grid-gap,
-      0 ($grid-gap / 2) $grid-gap ($grid-gap / 2),
-      0 0 $base-spacing-unit 0
-    );
+@mixin col($fraction: 1/1, $grid-gap: false) {
+  margin: if(
+    $grid-gap,
+    0 ($grid-gap / 2) $grid-gap ($grid-gap / 2),
+    0 0 $base-spacing-unit 0
+  );
 
-    @if ($grid-gap != false) {
-      width: calc( ((#{$col} / #{$sum}) *100% ) - #{$grid-gap} );
-    }
+  @if ($grid-gap != false) {
+    width: calc( (#{$fraction} *100% ) - #{$grid-gap} );
   }
 }
 
@@ -323,25 +325,72 @@
   }
 }
 
-@mixin col--2 {
+@mixin list--2 {
+  @include row;
   @include media($medium) {
-    @include list--inline;
-    @include col(1, 2, $base-spacing-unit-medium);
+    @include row($base-spacing-unit-medium);
+  }
+  @include media($large) {
+    @include row($base-spacing-unit-large);
   }
 
-  @include media($large) {
-    @include col(1, 2, $base-spacing-unit-large);
+  > li {
+    @include media($medium) {
+      @include col(1/2, $base-spacing-unit-medium);
+    }
+
+    @include media($large) {
+      @include col(1/2, $base-spacing-unit-large);
+    }
   }
 }
 
-@mixin col--3 {
+@mixin list--3 {
+  @include row;
   @include media($medium) {
-    @include list--inline;
-    @include col(1, 2, $base-spacing-unit-medium);
+    @include row($base-spacing-unit-medium);
+  }
+  @include media($large) {
+    @include row($base-spacing-unit-large);
   }
 
-  @include media($large) {
-    @include col(1, 3, $base-spacing-unit-large);
+  > li {
+    @include media($medium) {
+      @include col(1/2, $base-spacing-unit-medium);
+    }
+
+    @include media($large) {
+      @include col(1/3, $base-spacing-unit-large);
+    }
+  }
+}
+
+@mixin article {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+
+    article {
+      margin-top: $base-spacing-unit-extra-large;
+      position: relative;
+      width: 100%;
+      @include media($large) {
+        @include col(2/3, $base-spacing-unit-large);
+        margin-left: 0;
+        margin-top: ($base-spacing-unit-large * 2);
+      }
+    }
+
+    article + aside {
+      margin-top: $base-spacing-unit-extra-large;
+      width: 100%;
+      @include media($large) {
+        @include col(1/3, $base-spacing-unit-large);
+        margin-right: 0;
+        margin-top: ($base-spacing-unit-large * 2);
+      }
+    }
   }
 }
 
