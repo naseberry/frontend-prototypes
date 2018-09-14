@@ -63,3 +63,19 @@ section .navigation--number {
     justify-content: unset;
   }
 }
+
+/*--- Card details ---*/
+
+.card__details + .card__details {
+  @include media($extra-small) {
+    max-width: 25%;
+    align-self: center;
+    text-align: right;
+  }
+
+  .count {
+    display: block;
+    @include beta;
+    @include typography--heavy;
+  }
+}

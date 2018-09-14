@@ -27,10 +27,11 @@
   }
 }
 
-.card__details + .card__details {
+.card__details + .count {
   @include media($extra-small) {
-    max-width: 25%;
     align-self: center;
+    flex: 1 1 0;
+    max-width: 25%;
     text-align: right;
   }
 }

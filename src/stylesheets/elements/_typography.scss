@@ -58,7 +58,7 @@ h1 + .lead {
 
 /*--- Settings for count ---*/
 
-.count {
+.count .count--number {
   display: block;
   @include beta;
   @include typography--heavy;
